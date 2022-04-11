@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheatsheet - NewtriFacts</title>
+    <script type="text/javascript" src = "../JavaScript/Cheatsheet.js"></script>
+    <script src = '../JavaScript/header.js' type="text/javascript" defer>
+
+    </script>
+    <link rel = "stylesheet" type = "text/css" href="../CSS/mystyle.css">
+  </head>
+  <body>
+    <!--This program will demonstrate what the F21-99-NAPP
+      group has currently learned in the topics of HTML, JavaScript, and little
+      bit of CSS.
+
+      For this page, we will include the form that includes 1 input and 1
+      button. The user will type in a number, then click the submit button.
+
+      When the Submit button is pressed, the JavaScript program will first check
+      if the input is either a negative number or isn't an number. If either
+      conditions doesn't occur, the program will do a simple calculation and print
+      it onto the HTML document.
+      Otherwise an alert will appear and no further actions will be taken.-->
+
+      <section>
+        <header-component></header-component>
+        <header>
+          <h2>Cheatsheet</h2>
+        </header>
+        <p>
+          For a better understanding of the math behind Jeff Novick's guidelines,
+          this page will allow you set a positive amount on the slider bar.
+          <br>From there, you can see the recommended amount of each nutritional value.
+        </p>
+      </section>
+      <br>
+
+      <hr>
+      <br>
+
+
+        <form class = "cheatsheetForm" onsubmit="return false;">
+          <fieldset>
+            <legend style = "font-size: 24px">Cheatsheet</legend>
+            <br>
+            <label for="slider">Move the slider to the desired calorie amount</label><br>
+            <br>
+            <span class = "limit">0</span>
+            <input type="range" min = "0" max = "500" value="250" class = "slider" id = "range_slider" step="5" oninput="do_calc()">
+            <span class="limit">500</span>
+            <br>
+            <br>
+            <!--
+              The following table displays the calculated results of each rule
+              based on the input given by the user. The results are calculated
+              then displayed using the Cheatsheet.js file attached
+            -->
+            <table>
+              <tr>
+                <th></th>
+                <th style = "width: 20%">Results*</th>
+              </tr>
+              <tr>
+                <td>Calories:</td>
+                <td id = "res1"></td>
+              </tr>
+              <tr>
+                <td>Max amount of Total Fat in grams (2% of Calories):</td>
+                <td id = "res2"></td>
+              </tr>
+              <tr>
+                <td>Max amount of Saturated Fat in grams (1% of Calories):</td>
+                <td id = "res3"></td>
+              </tr>
+              <tr>
+                <td>Max amount of Trans Fat in grams (for any food item):</td>
+                <td id = "res4"></td>
+              </tr>
+              <tr>
+                <td>Max amount of Cholesterol in milligrams (per day):</td>
+                <td id = "res5"></td>
+              </tr>
+              <tr>
+                <td>Max amount of added Sugar in grams (2% of Calories):</td>
+                <td id = "res6"></td>
+              </tr>
+              <tr>
+                <td>Max amount of Sodium (1 mg : 1 cal.):</td>
+                <td id = "res7"></td>
+              </tr>
+              <tr>
+                <td>Minimum amount of Fiber in grams (2% of Calories):</td>
+                <td id = "res8"></td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+
+<!--
+      <script type="text/javascript">
+        document.getElementById("search").addEventListener("keyup", function(event) {
+          if(event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search_btn").click();
+          }
+        });
+      </script>
+-->
+
+    </body>
+
+    <footer>
+
+    </footer>
+</html>

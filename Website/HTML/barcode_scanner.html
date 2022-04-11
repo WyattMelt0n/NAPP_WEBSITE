@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../CSS/mystyle.css">
+    <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+    <script src = "../JavaScript/header.js"></script>
+    <style>
+        /* In order to place the tracking correctly */
+        canvas.drawing, canvas.drawingBuffer {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header-component></header-component>
+    <!-- Div to show the scanner -->
+    <h2>Barcode Scanner</h2>
+    <p>
+      Press the "Start/Stop the Scanner!" button to begin the scanner.
+      <br><strong>NOTE: While this will work on a PC, the use of the scanner
+      is recommended for mobile use.</strong><br>
+    </p>
+
+    <div class="scanner-div">
+      <div id="scanner-container"></div>
+      <button type="button" id = "btn" class = "barcode_btn">Start/Stop the Scanner!</button>
+    </div>
+
+
+    <!-- Include the image-diff library -->
+
+
+    <script>
+        var _scannerIsRunning = false;
+
+        function startScanner() {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#scanner-container'),
+                    constraints: {
+                        width: 640,
+                        height: 480,
+                        facingMode: "environment"
+                    },
+                },
+                decoder: {
+                    readers: ["upc_reader"],
+
+                    debug: {
+                        showCanvas: true,
+                        showPatches: true,
+                        showFoundPatches: true,
+                        showSkeleton: true,
+                        showLabels: true,
+                        showPatchLabels: true,
+                        showRemainingPatchLabels: true,
+                        boxFromPatches: {
+                            showTransformed: true,
+                            showTransformedBox: true,
+                            showBB: true
+                        }
+                    }
+                },
+
+            }, function (err) {
+                if (err) {
+                    console.log(err);
+                    return
+                }
+
+                console.log("Initialization finished. Ready to start");
+                Quagga.start();
+
+                // Set flag to is running
+                _scannerIsRunning = true;
+            });
+
+            Quagga.onProcessed(function (result) {
+                var drawingCtx = Quagga.canvas.ctx.overlay,
+                drawingCanvas = Quagga.canvas.dom.overlay;
+
+                if (result) {
+                    if (result.boxes) {
+                        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                        result.boxes.filter(function (box) {
+                            return box !== result.box;
+                        }).forEach(function (box) {
+                            Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                        });
+                    }
+
+                    if (result.box) {
+                        Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                    }
+
+                    if (result.codeResult && result.codeResult.code) {
+                        Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                    }
+                }
+            });
+
+
+            Quagga.onDetected(function (result) {
+                console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                sessionStorage.setItem("query", result.codeResult.code);
+                window.location.href = "./search.html";
+            });
+        }
+
+
+        // Start/stop scanner
+        document.getElementById("btn").addEventListener("click", function () {
+            if (_scannerIsRunning) {
+                Quagga.stop();
+                _scannerIsRunning = false;
+            } else {
+                let device = navigator.userAgent;
+                let regexp = /android|iphone|kindle|ipad/i;
+
+                let is_Mobile_Device = regexp.test(device);
+
+                if(is_Mobile_Device) {
+                  alert("Please use a mobile device for use of the Barcode Scanner");
+                }
+                else {
+                  startScanner();
+                }
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

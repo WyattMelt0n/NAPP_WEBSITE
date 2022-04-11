@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Data Entry - NewtriFacts
+    </title>
+    <link rel="stylesheet" href="../CSS/mystyle.css"></link>
+    <script src="../JavaScript/scripts.js"></script>
+    <script type="text/javascript" src = "../JavaScript/header.js">
+
+    </script>
+  </head>
+  <body>
+
+    <section>
+      <header>
+        <header-component></header-component>
+        <h2>Data Entry</h2>
+
+        <p>
+          Want to see your favorite food from a new perspective? You have come to the right place.
+          <br>Using the nutrition label on the food package, type in the data needed; when finished, click "Submit Data".
+          <br>Want to know the math behind what we do? Click the "Cheat Sheet" link in the navigation bar above!
+        </p>
+        <br>
+      </header>
+
+    </section>
+    <hr><br>
+
+    <div class = "float_left">
+      <form id = "dataForm">
+        <fieldset>
+          <legend>Manual Data Entry:</legend>
+          <p>Please fill out the form below:</p>
+
+          <table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Units</th>
+            </tr>
+            <tr>
+              <td>Calories per serving:</td>
+              <td>
+                <input type="text"name = "Calories" id="cal_in" value="">
+              </td>
+              <td>cal</td>
+            </tr>
+            <tr>
+              <td>Total Fat:</td>
+              <td>
+                <input type="text" name = "Total Fat" id="fat_in" value="">
+              </td>
+              <td>g</td>
+            </tr>
+            <tr>
+              <td>Saturated Fat:</td>
+              <td>
+                <input type="text" name = "Saturated Fat" id="sFat_in" value="">
+              </td>
+              <td>g</td>
+            </tr>
+            <tr>
+              <td>Trans Fat:</td>
+              <td>
+                <input type="text" name = "Trans Fat" id="trFat_in" value="">
+              </td>
+              <td>g</td>
+            </tr>
+            <tr>
+              <td>Cholesterol:</td>
+              <td>
+                <input type="text" name = "Cholesterol" id="chol_in" value="">
+              </td>
+              <td>mg</td>
+            </tr>
+            <tr>
+              <td>Sodium:</td>
+              <td>
+                <input type="text" name = "Sodium" id="sodium_in" value="">
+              </td>
+              <td>mg</td>
+            </tr>
+            <tr>
+              <td>Dietary Fiber:</td>
+              <td>
+                <input type="text" name = "Dietary Fiber"id="fiber_in" value="">
+              </td>
+              <td>g</td>
+            </tr>
+            <tr>
+              <td>Added Sugar:</td>
+              <td>
+                <input type="text" name = "Added Sugar" id="sugar_in" value="">
+              </td>
+              <td>g</td>
+            </tr>
+          </table>
+
+          <br><br>
+          <div class="button_holder">
+            <button type="button" name="button" class = "floated" onclick="send_data()">Submit Data</button>
+            <button type="button" name="clear" class = "floated" onclick="clear_data()">Clear Data</button>
+          </div>
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div class="float_right">
+      <fieldset>
+        <legend>Results:</legend>
+        <p>Here are the results based on your input.</p>
+        <table class = "result_table">
+          <tr>
+            <th></th>
+            <th>Your Input</th>
+            <th>Ideal Amount</th>
+            <th>Acceptable Amount</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+            <th class="row">Calories per Serving (cal):</th>
+            <td id = "B3"></td>
+            <td class = "NA_CELL">N/A</td>
+            <td class = "NA_CELL">N/A</td>
+            <td class = "NA_CELL">N/A</td>
+          </tr>
+          <tr>
+            <th class="row">Total Fat per Serving (g):</th>
+            <td id = "B5"></td>
+            <td id = "C5"></td>
+            <td id = "D5"></td>
+            <td id = "E5"></td>
+          </tr>
+          <tr>
+            <th class="row">Saturated Fat per Serving (g):</th>
+            <td id = "B6"></td>
+            <td id = "C6"></td>
+            <td id = "D6"></td>
+            <td id = "E6"></td>
+          </tr>
+          <tr>
+            <th class="row">Trans Fat per Serving (g):</th>
+            <td id = "B7"></td>
+            <td id = "C7"></td>
+            <td id = "D7"></td>
+            <td id = "E7"></td>
+          </tr>
+          <tr>
+            <th class="row">Cholesterol per Serving (mg):</th>
+            <td id = "B8"></td>
+            <td id = "C8"></td>
+            <td id = "D8"></td>
+            <td id = "E8"></td>
+          </tr>
+          <tr>
+            <th class="row">Sodium per Serving (mg):</th>
+            <td id = "B9"></td>
+            <td id = "C9"></td>
+            <td id = "D9"></td>
+            <td id = "E9"></td>
+          </tr>
+          <tr>
+            <th class="row">Fiber per Serving (g):</th>
+            <td id = "B10"></td>
+            <td id = "C10"></td>
+            <td id = "D10"></td>
+            <td id = "E10"></td>
+          </tr>
+          <tr>
+            <th class="row">Added Sugar per Serving (g):</th>
+            <td id = "B11"></td>
+            <td id = "C11"></td>
+            <td id = "D11"></td>
+            <td id = "E11"></td>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+
+
+  </body>
+</html>

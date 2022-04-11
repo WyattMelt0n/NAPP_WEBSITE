@@ -1,0 +1,92 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
+/* Add a black background color to the top navigation */
+  .topnav {
+    float: left;
+    margin: 0;
+    padding: 0;
+    background-color: #8ec63f;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .topnav ul {
+    float: left;
+  }
+  /* Style the links inside the navigation bar */
+  .topnav  a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 24px 28px;
+  text-decoration: none;
+  font-size: 24px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+  background-color: #71AB20;
+  color: black;
+  }
+
+  /* Add an active class to highlight the current page */
+  .topnav a.home_link {
+  float: left;
+  background-color: #7A318F;
+  color: white;
+  font-size: 24px;
+  }
+
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+  display: none;
+  }
+
+  .topnav input[type = text] {
+    float: right;
+    padding: 6px;
+    width: 240px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 14px;
+  }
+  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  @media screen and (max-width: 900px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  @media screen and (max-width: 900px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 900px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: left;
+      display: block;
+      text-align: left;
+    }
+  }

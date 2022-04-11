@@ -1,0 +1,28 @@
+body.home_background {
+  background-image: url(../assets/pexels-pixabay-264537.jpg);
+}
+body.home_background::before {
+  background-color: rgba(0, 0, 0, 0.50);
+}
+h1.home_h1 {
+  color: white;
+  text-align: center;
+  font-size: 100px;
+  padding-bottom: 0px;
+}
+h3.home_h3 {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+div.home_container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: inherit;
+  max-height: 150px;
+  vertical-align: middle;
+  text-shadow: 5px 5px #111111;
+}

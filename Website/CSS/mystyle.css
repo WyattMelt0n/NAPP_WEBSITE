@@ -1,0 +1,141 @@
+@import url("old_nav_style.css");
+@import url("homestyle.css");
+@import url("slider.css");
+@import url("barcode.css");
+@import url("result_page.css");
+
+html {
+  min-height: 100%;
+}
+body {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 40%, rgba(141, 198, 63, 1) 100%);
+  margin: inherit;
+  background-repeat: no-repeat;
+}
+p {
+  font-size: 24px;
+}
+h1 {
+  text-align: left;
+  font-size: 64px;
+  color: #7A318F;
+}
+h2 {
+  text-align: left;
+  font-size: 36px;
+  color: #7A318F;
+}
+h3 {
+  font-size: 24px;
+  color: #7A318F;
+  font-style: italic;
+}
+fieldset {
+  height: 100%;
+}
+form.cheatsheetForm {
+  position:absolute;
+  width: 90%;
+  padding-left: 10%;
+
+}
+div{
+  height: 500px;
+  width: 75%;
+  max-width: 750px;
+}
+div.float_left {
+  float: left;
+  height: 500px;
+  width: 50%;
+  max-width: 50%;
+}
+div.float_right {
+  float: right;
+  height: 500px;
+  width: 50%;
+  max-width: 50%;
+}
+div.center_container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  vertical-align: middle;
+  max-width: 600px;
+  max-height: 400px;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+div.button_holder {
+  width: 40%;
+  height: 1%;
+  display:flex;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  max-width: 450px;
+  max-height: inherit;
+}
+legend {
+  font-size: 20px
+}
+input {
+  text-align: right;
+  width: 50%;
+}
+
+table {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+th.row {
+  text-align: left;
+}
+
+td {
+  border: 0.5px solid black;
+  text-align: center;
+}
+td:nth-child(1) {
+  text-align: left;
+}
+.tab {
+  display: inline-block;
+  margin-left: 100px;
+}
+.floated {
+  float: left;
+  margin-right: 5px;
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
+}
+.floated_link {
+  float: left;
+  margin-right: 15px;
+}
+.NA_CELL {
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  div.float_left {
+    float: top;
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+  }
+  div.float_right {
+    float: bottom;
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
